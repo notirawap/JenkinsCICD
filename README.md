@@ -6,7 +6,7 @@
 
 First, add a simple Jenkinsfile and push the commit.
 
-<img width="1014" height="683" alt="Image" src="https://github.com/user-attachments/assets/653b51b1-af61-402e-860d-7ac995d3a275" />
+[<img width="1014" height="683" alt="Image" src="https://github.com/user-attachments/assets/653b51b1-af61-402e-860d-7ac995d3a275" />](https://github.com/user-attachments/assets/653b51b1-af61-402e-860d-7ac995d3a275)
 
 <aside>
 🚨 Before creating a Jenkins job, it’s important to address the potential **"Host key verification failed"** error. This occurs when Jenkins tries to access the Git repository via SSH for the first time. Like any initial SSH connection to a Linux machine, Jenkins would need to accept the server's fingerprint. If strict host key checking is enabled, the connection will be rejected, resulting in this error. Taking precautionary measures can help prevent this issue. Go to `Manage Jenkins` > `Security` > `Git Host Key Verification Configuration` and select `Accept first connection` option.
@@ -14,28 +14,25 @@ First, add a simple Jenkinsfile and push the commit.
 
 In Jenkins server, create a job in Jenkins that fetches the `Jenkinsfile` from a repository and runs it. Go to  `Configure`  > `Pipeline` and select `Pipeline script for SCM`. Select `SCM` as `Git`, and `Repository URL` as Git repository SSH URL from Github. To add credentials, select `SSH Username with private key`, name the credentials `ID`, give `Username` as Github account, and fill the private key directly from `cat ~/.ssh/<privateKeyFile>`.  Select Branch and give Script Path as Jenkinsfile path in the repository.
 
-<img width="730" height="857" alt="Image" src="https://github.com/user-attachments/assets/90eab036-3508-4658-847c-95e20b6235db" />
-<img width="545" height="547" alt="Image" src="https://github.com/user-attachments/assets/b0510545-becd-4158-a096-e61e7a4883e1" />
+[<img width="730" height="857" alt="Image" src="https://github.com/user-attachments/assets/90eab036-3508-4658-847c-95e20b6235db" />](https://github.com/user-attachments/assets/90eab036-3508-4658-847c-95e20b6235db)
+[<img width="545" height="547" alt="Image" src="https://github.com/user-attachments/assets/b0510545-becd-4158-a096-e61e7a4883e1" />](https://github.com/user-attachments/assets/b0510545-becd-4158-a096-e61e7a4883e1)
 
 Go to `<repositoryName>` > `Settings` > `Webhooks` > `Add webhook`, fill `Payload URL` as `http://<JenkinsServerIP>:8080/github-webhook/`  and `Content type` as `application/json` , and select an event on Github to trigger the webhook.
 
 <aside>
-🚨
-
-Make sure port 8080 of Jenkins server should be allowed from any IP.
-
+🚨 Make sure port 8080 of Jenkins server should be allowed from any IP.
 </aside>
 
-<img width="1200" height="1218" alt="Image" src="https://github.com/user-attachments/assets/fdd4379e-da52-41af-aa37-c833614cfdc1" />
+[<img width="1200" height="1218" alt="Image" src="https://github.com/user-attachments/assets/fdd4379e-da52-41af-aa37-c833614cfdc1" />](https://github.com/user-attachments/assets/fdd4379e-da52-41af-aa37-c833614cfdc1)
 
 In Jenkins server, go to `Configure` > `Build Triggers` and select `GitHub hook trigger for GITScm polling`.
 
-<img width="742" height="538" alt="Image" src="https://github.com/user-attachments/assets/59fd9a05-3b22-4691-9b16-120b148e8cd6" />
+[<img width="742" height="538" alt="Image" src="https://github.com/user-attachments/assets/59fd9a05-3b22-4691-9b16-120b148e8cd6" />](https://github.com/user-attachments/assets/59fd9a05-3b22-4691-9b16-120b148e8cd6)
 
 Whenever you push the commit, the job in Jenkins is triggered.
 
-<img width="1022" height="576" alt="Image" src="https://github.com/user-attachments/assets/667b54c7-9c21-41ff-9f3e-bf2f197ccc40" />
-<img width="610" height="334" alt="Image" src="https://github.com/user-attachments/assets/ace03f8e-0c1d-4f0d-a4a1-4623f420e664" />
+[<img width="1022" height="576" alt="Image" src="https://github.com/user-attachments/assets/667b54c7-9c21-41ff-9f3e-bf2f197ccc40" />](https://github.com/user-attachments/assets/667b54c7-9c21-41ff-9f3e-bf2f197ccc40)
+[<img width="610" height="334" alt="Image" src="https://github.com/user-attachments/assets/ace03f8e-0c1d-4f0d-a4a1-4623f420e664" />](https://github.com/user-attachments/assets/ace03f8e-0c1d-4f0d-a4a1-4623f420e664)
 
 
 ## Fetching a Code by Git
